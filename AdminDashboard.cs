@@ -1,4 +1,5 @@
 ﻿using Student_Attendance_Management_System___OOAD___E9___Year_4.Database;
+using Student_Attendance_Management_System___OOAD___E9___Year_4.DesignPatterns.Repository.Clazz;
 using Student_Attendance_Management_System___OOAD___E9___Year_4.DesignPatterns.Repository.Departments;
 using Student_Attendance_Management_System___OOAD___E9___Year_4.DesignPatterns.Repository.Users;
 using Student_Attendance_Management_System___OOAD___E9___Year_4.Models;
@@ -10,11 +11,13 @@ public partial class AdminDashboard : Form
     private User _user;
     private readonly UserRepository _userRepository;
     private readonly DepartmentRepository _departmentRepository;
-    public AdminDashboard(User user,UserRepository userRepository, DepartmentRepository departmentRepository)
+    private readonly ClassesRepository _classesRepository;
+    public AdminDashboard(User user,UserRepository userRepository, DepartmentRepository departmentRepository, ClassesRepository classesRepository)
     {
         _user = user;
         _userRepository = userRepository;
         _departmentRepository = departmentRepository;
+        _classesRepository = classesRepository;
         InitializeComponent();
         username.Text = user.FullName;
         email.Text = user.Email;
@@ -48,7 +51,7 @@ public partial class AdminDashboard : Form
 
     private void class_btn_Click(object sender, EventArgs e)
     {
-        LoadForm(new AdminClassesPage());
+        LoadForm(new AdminClassesPage(_classesRepository, _userRepository, _departmentRepository, _user));
     }
 
     private void student_btn_Click(object sender, EventArgs e)

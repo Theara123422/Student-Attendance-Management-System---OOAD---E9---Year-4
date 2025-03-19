@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Student_Attendance_Management_System___OOAD___E9___Year_4.Database;
+using Student_Attendance_Management_System___OOAD___E9___Year_4.DesignPatterns.Repository.Clazz;
 using Student_Attendance_Management_System___OOAD___E9___Year_4.DesignPatterns.Repository.Departments;
 using Student_Attendance_Management_System___OOAD___E9___Year_4.DesignPatterns.Repository.Users;
 using Student_Attendance_Management_System___OOAD___E9___Year_4.Utils;
@@ -11,13 +12,15 @@ namespace Student_Attendance_Management_System___OOAD___E9___Year_4
         private readonly AppDbContext _context;
         private readonly UserRepository _userRepository;
         private readonly DepartmentRepository _departmentRepository;
+        private readonly ClassesRepository _classesRepository;
 
-        public LoginForm(AppDbContext context, UserRepository userRepository, DepartmentRepository departmentRepository)
+        public LoginForm(AppDbContext context, UserRepository userRepository, DepartmentRepository departmentRepository, ClassesRepository classesRepository)
         {
             InitializeComponent();
             this._context = context;
             this._userRepository = userRepository;
             _departmentRepository = departmentRepository;
+            _classesRepository = classesRepository;
         }
 
         private async void btn_login_Click(object sender, EventArgs e)
@@ -43,7 +46,7 @@ namespace Student_Attendance_Management_System___OOAD___E9___Year_4
                 switch (User.Role)
                 {
                     case Role.Admin:
-                        AdminDashboard adminDashboard = new AdminDashboard(User,_userRepository,_departmentRepository);
+                        AdminDashboard adminDashboard = new AdminDashboard(User,_userRepository,_departmentRepository, _classesRepository);
                         adminDashboard.Show();
                         this.Hide();
                         break;
