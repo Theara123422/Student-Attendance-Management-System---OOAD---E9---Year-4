@@ -22,6 +22,10 @@ namespace Student_Attendance_Management_System___OOAD___E9___Year_4
             _departmentRepository = departmentRepository;
             _classesRepository = classesRepository;
         }
+        public LoginForm()
+        {
+            InitializeComponent();
+        }
 
         private async void btn_login_Click(object sender, EventArgs e)
         {

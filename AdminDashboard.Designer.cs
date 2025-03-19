@@ -76,6 +76,7 @@
             logout_btn.SizeMode = PictureBoxSizeMode.Zoom;
             logout_btn.TabIndex = 6;
             logout_btn.TabStop = false;
+            logout_btn.Click += logout_btn_Click;
             // 
             // department_btn
             // 

@@ -3,7 +3,6 @@ using Student_Attendance_Management_System___OOAD___E9___Year_4.DesignPatterns.R
 using Student_Attendance_Management_System___OOAD___E9___Year_4.DesignPatterns.Repository.Users;
 using Student_Attendance_Management_System___OOAD___E9___Year_4.Models;
 using Student_Attendance_Management_System___OOAD___E9___Year_4.Utils;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Student_Attendance_Management_System___OOAD___E9___Year_4
 {

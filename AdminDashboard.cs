@@ -12,7 +12,7 @@ public partial class AdminDashboard : Form
     private readonly UserRepository _userRepository;
     private readonly DepartmentRepository _departmentRepository;
     private readonly ClassesRepository _classesRepository;
-    public AdminDashboard(User user,UserRepository userRepository, DepartmentRepository departmentRepository, ClassesRepository classesRepository)
+    public AdminDashboard(User user, UserRepository userRepository, DepartmentRepository departmentRepository, ClassesRepository classesRepository)
     {
         _user = user;
         _userRepository = userRepository;
@@ -67,5 +67,19 @@ public partial class AdminDashboard : Form
     private void AdminDashboard_Load(object sender, EventArgs e)
     {
         LoadForm(new AdminDashboardPage());
+    }
+
+    private void logout_btn_Click(object sender, EventArgs e)
+    {
+        var confirmResult = MessageBox.Show("Are you sure you want Logout?",
+                                                    "Confirm Logout",
+                                                    MessageBoxButtons.YesNo,
+                                                    MessageBoxIcon.Warning);
+        if(confirmResult == DialogResult.Yes)
+        {
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            this.Hide();
+        }
     }
 }
