@@ -53,6 +53,8 @@
             Year = new DataGridViewTextBoxColumn();
             Section = new DataGridViewTextBoxColumn();
             Students = new DataGridViewTextBoxColumn();
+            label8 = new Label();
+            ClassProfessor = new ComboBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_classes).BeginInit();
             SuspendLayout();
@@ -195,7 +197,7 @@
             // 
             btn_update_class.Enabled = false;
             btn_update_class.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_update_class.Location = new Point(791, 256);
+            btn_update_class.Location = new Point(791, 298);
             btn_update_class.Name = "btn_update_class";
             btn_update_class.Size = new Size(222, 44);
             btn_update_class.TabIndex = 19;
@@ -208,7 +210,7 @@
             // 
             btn_del_class.Enabled = false;
             btn_del_class.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_del_class.Location = new Point(538, 256);
+            btn_del_class.Location = new Point(538, 298);
             btn_del_class.Name = "btn_del_class";
             btn_del_class.Size = new Size(230, 44);
             btn_del_class.TabIndex = 18;
@@ -220,7 +222,7 @@
             // 
             btn_edit_class.Enabled = false;
             btn_edit_class.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_edit_class.Location = new Point(276, 256);
+            btn_edit_class.Location = new Point(276, 298);
             btn_edit_class.Name = "btn_edit_class";
             btn_edit_class.Size = new Size(230, 44);
             btn_edit_class.TabIndex = 17;
@@ -231,7 +233,7 @@
             // btn_insert_class
             // 
             btn_insert_class.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_insert_class.Location = new Point(15, 256);
+            btn_insert_class.Location = new Point(15, 298);
             btn_insert_class.Name = "btn_insert_class";
             btn_insert_class.Size = new Size(230, 44);
             btn_insert_class.TabIndex = 16;
@@ -243,10 +245,10 @@
             // 
             dgv_classes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_classes.Columns.AddRange(new DataGridViewColumn[] { Id, Labels, Department, FacultyName, Year, Section, Students });
-            dgv_classes.Location = new Point(13, 333);
+            dgv_classes.Location = new Point(13, 359);
             dgv_classes.Name = "dgv_classes";
             dgv_classes.RowHeadersWidth = 51;
-            dgv_classes.Size = new Size(1000, 301);
+            dgv_classes.Size = new Size(1000, 275);
             dgv_classes.TabIndex = 20;
             dgv_classes.CellClick += dgv_classes_CellClick;
             // 
@@ -299,11 +301,34 @@
             Students.Name = "Students";
             Students.Width = 125;
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.Location = new Point(18, 250);
+            label8.Name = "label8";
+            label8.Size = new Size(107, 21);
+            label8.TabIndex = 21;
+            label8.Text = "Professor  : ";
+            // 
+            // ClassProfessor
+            // 
+            ClassProfessor.Cursor = Cursors.Hand;
+            ClassProfessor.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            ClassProfessor.FormattingEnabled = true;
+            ClassProfessor.Items.AddRange(new object[] { "Freshman", "Sophomore", "Junior", "Senior" });
+            ClassProfessor.Location = new Point(137, 250);
+            ClassProfessor.Name = "ClassProfessor";
+            ClassProfessor.Size = new Size(876, 35);
+            ClassProfessor.TabIndex = 22;
+            // 
             // AdminClassesPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1036, 646);
+            Controls.Add(ClassProfessor);
+            Controls.Add(label8);
             Controls.Add(dgv_classes);
             Controls.Add(btn_update_class);
             Controls.Add(btn_del_class);
@@ -358,5 +383,7 @@
         private DataGridViewTextBoxColumn Year;
         private DataGridViewTextBoxColumn Section;
         private DataGridViewTextBoxColumn Students;
+        private Label label8;
+        private ComboBox ClassProfessor;
     }
 }

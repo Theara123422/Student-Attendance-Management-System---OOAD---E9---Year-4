@@ -1,4 +1,5 @@
-﻿using Student_Attendance_Management_System___OOAD___E9___Year_4.DesignPatterns.Repository.Users;
+﻿using Student_Attendance_Management_System___OOAD___E9___Year_4.DesignPatterns.Decorator;
+using Student_Attendance_Management_System___OOAD___E9___Year_4.DesignPatterns.Repository.Users;
 using Student_Attendance_Management_System___OOAD___E9___Year_4.Models;
 
 namespace Student_Attendance_Management_System___OOAD___E9___Year_4
@@ -7,10 +8,14 @@ namespace Student_Attendance_Management_System___OOAD___E9___Year_4
     {
         private readonly UserRepository _userRepository;
         private int SelectedUserIdForAction = -1;
+        private readonly IValidator _StringValidator;
+        private readonly IValidator _EmailValidator;
 
         public AdminProfessorPage(UserRepository userRepository)
         {
             _userRepository = userRepository;
+            _StringValidator = new StringValidators();
+            _EmailValidator = new EmailValidator();
             InitializeComponent();
             LoadUserData();
         }
@@ -24,10 +29,16 @@ namespace Student_Attendance_Management_System___OOAD___E9___Year_4
             string Email = email.Text;
             string Password = password.Text;
 
-            if (string.IsNullOrWhiteSpace(Username) ||
-                string.IsNullOrWhiteSpace(FullName) ||
-                string.IsNullOrWhiteSpace(Email) ||
-                string.IsNullOrWhiteSpace(Password))
+            bool isUsernameInValid = _StringValidator.Validate(Username);
+            bool isFullNameInValid = _StringValidator.Validate(FullName);
+            bool isEmailInValid    = _EmailValidator.Validate(Email);
+            bool isPasswordInValid = _StringValidator.Validate(Password);
+
+            if (!isUsernameInValid ||
+                !isFullNameInValid ||
+                !isEmailInValid || 
+                !isPasswordInValid
+               )
             {
                 MessageBox.Show("All fields are required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 btn_insert_prof.Enabled = true;

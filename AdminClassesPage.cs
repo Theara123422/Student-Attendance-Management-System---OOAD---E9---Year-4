@@ -21,6 +21,7 @@ namespace Student_Attendance_Management_System___OOAD___E9___Year_4
             _user = user;
             InitializeComponent();
             LoadAllClasses();
+            LoadAllUserIntoComboBox();
             LoadDepartmentsIntoComboBox();
         }
 
@@ -33,6 +34,16 @@ namespace Student_Attendance_Management_System___OOAD___E9___Year_4
             ClassDepartment.DisplayMember = "DepartmentName";
             ClassDepartment.ValueMember = "Id";
 
+        }
+
+        private void LoadAllUserIntoComboBox()
+        {
+            var users = _userRepository.GetAllUsers().Select(u => new { u.FullName, u.Id }).ToList();
+            ClassProfessor.Items.Clear();
+
+            ClassProfessor.DataSource = users;
+            ClassProfessor.DisplayMember = "FullName";
+            ClassProfessor.ValueMember = "Id";
         }
 
         private void dgv_classes_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -55,7 +66,7 @@ namespace Student_Attendance_Management_System___OOAD___E9___Year_4
             int DepartmentId = Convert.ToInt32(ClassDepartment.SelectedValue);
             int Year = ClassYear.Text == "Freshman" ? 1 : ClassYear.Text == "Sophomore" ? 2 : ClassYear.Text == "Junior" ? 3 : 4;
             int Section = ClassSection.Text == "Morning" ? 0 : ClassSection.Text == "Afternoon" ? 1 : 2;
-            int UserId = _user.Id;
+            int UserId = (int) ClassProfessor.SelectedValue;
 
             if (string.IsNullOrWhiteSpace(ClassName))
             {
@@ -129,10 +140,8 @@ namespace Student_Attendance_Management_System___OOAD___E9___Year_4
 
                 if (confirmResult == DialogResult.Yes)
                 {
-                    // Call the delete method in the repository
+                    
                     _classesRepository.DeleteClass(selectedClasses);
-
-                    // Reload the DataGridView to reflect the changes
                     LoadAllClasses();
                 }
             }

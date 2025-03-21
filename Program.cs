@@ -3,8 +3,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Student_Attendance_Management_System___OOAD___E9___Year_4;
 using Student_Attendance_Management_System___OOAD___E9___Year_4.Database;
+using Student_Attendance_Management_System___OOAD___E9___Year_4.DesignPatterns.Observer.Attendances;
 using Student_Attendance_Management_System___OOAD___E9___Year_4.DesignPatterns.Repository.Clazz;
 using Student_Attendance_Management_System___OOAD___E9___Year_4.DesignPatterns.Repository.Departments;
+using Student_Attendance_Management_System___OOAD___E9___Year_4.DesignPatterns.Repository.Students;
 using Student_Attendance_Management_System___OOAD___E9___Year_4.DesignPatterns.Repository.Users;
 
 internal static class Program
@@ -27,6 +29,8 @@ internal static class Program
         services.AddTransient<UserRepository>();
         services.AddTransient<DepartmentRepository>();
         services.AddTransient<ClassesRepository>();
+        services.AddTransient<StudentRepository>();
+        services.AddTransient<AttendanceRepository>();
 
         var serviceProvider = services.BuildServiceProvider();
 

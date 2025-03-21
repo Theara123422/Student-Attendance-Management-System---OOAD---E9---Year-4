@@ -33,13 +33,13 @@
             label1 = new Label();
             label2 = new Label();
             dgvAdminDashboard = new DataGridView();
-            all_class_btn = new Label();
             cl_id = new DataGridViewTextBoxColumn();
             cl_name = new DataGridViewTextBoxColumn();
             cl_depart = new DataGridViewTextBoxColumn();
             cl_prof = new DataGridViewTextBoxColumn();
             cl_stu_amount = new DataGridViewTextBoxColumn();
             cl_status = new DataGridViewTextBoxColumn();
+            all_class_btn = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvAdminDashboard).BeginInit();
             SuspendLayout();
@@ -86,19 +86,6 @@
             dgvAdminDashboard.Size = new Size(1012, 517);
             dgvAdminDashboard.TabIndex = 3;
             // 
-            // all_class_btn
-            // 
-            all_class_btn.AutoSize = true;
-            all_class_btn.Font = new Font("Century Gothic", 10.2F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
-            all_class_btn.ForeColor = Color.DodgerBlue;
-            all_class_btn.ImageAlign = ContentAlignment.MiddleRight;
-            all_class_btn.Location = new Point(952, 71);
-            all_class_btn.Name = "all_class_btn";
-            all_class_btn.Size = new Size(69, 19);
-            all_class_btn.TabIndex = 2;
-            all_class_btn.Text = "See all ";
-            all_class_btn.TextAlign = ContentAlignment.MiddleLeft;
-            // 
             // cl_id
             // 
             dataGridViewCellStyle1.Font = new Font("Century Gothic", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -144,6 +131,19 @@
             cl_status.Name = "cl_status";
             cl_status.Width = 132;
             // 
+            // all_class_btn
+            // 
+            all_class_btn.AutoSize = true;
+            all_class_btn.Font = new Font("Century Gothic", 10.2F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            all_class_btn.ForeColor = Color.DodgerBlue;
+            all_class_btn.ImageAlign = ContentAlignment.MiddleRight;
+            all_class_btn.Location = new Point(952, 71);
+            all_class_btn.Name = "all_class_btn";
+            all_class_btn.Size = new Size(69, 19);
+            all_class_btn.TabIndex = 2;
+            all_class_btn.Text = "See all ";
+            all_class_btn.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // AdminDashboardPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -157,6 +157,7 @@
             Name = "AdminDashboardPage";
             Text = "AdminDashboardPage";
             TopMost = true;
+            Load += AdminDashboardPage_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvAdminDashboard).EndInit();

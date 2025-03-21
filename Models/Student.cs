@@ -16,6 +16,11 @@ public class Student : BaseModel
     public string FullName { get; set; }
 
     [Required]
+    [StringLength(10)]
+    [Column("gender")]
+    public string Gender { get; set; }
+
+    [Required]
     [Column("section")]
     public Section Section { get; set; }
 

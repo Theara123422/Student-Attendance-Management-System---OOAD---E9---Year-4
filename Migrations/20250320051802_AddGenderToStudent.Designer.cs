@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Student_Attendance_Management_System___OOAD___E9___Year_4.Database;
 
@@ -11,9 +12,11 @@ using Student_Attendance_Management_System___OOAD___E9___Year_4.Database;
 namespace Student_Attendance_Management_System___OOAD___E9___Year_4.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250320051802_AddGenderToStudent")]
+    partial class AddGenderToStudent
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -189,8 +192,7 @@ namespace Student_Attendance_Management_System___OOAD___E9___Year_4.Migrations
                     b.Property<string>("Gender")
                         .IsRequired()
                         .HasMaxLength(10)
-                        .HasColumnType("varchar(10)")
-                        .HasColumnName("gender");
+                        .HasColumnType("varchar(10)");
 
                     b.Property<DateTime>("RowVersion")
                         .IsConcurrencyToken()
@@ -293,7 +295,7 @@ namespace Student_Attendance_Management_System___OOAD___E9___Year_4.Migrations
                             Role = 0,
                             RowVersion = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = 0,
-                            UpdatedAt = new DateTime(2025, 3, 20, 5, 18, 51, 55, DateTimeKind.Utc).AddTicks(3170),
+                            UpdatedAt = new DateTime(2025, 3, 20, 5, 18, 1, 992, DateTimeKind.Utc).AddTicks(7415),
                             Username = "pentheara"
                         });
                 });

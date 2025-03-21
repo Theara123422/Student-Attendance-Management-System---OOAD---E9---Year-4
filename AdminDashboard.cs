@@ -1,6 +1,6 @@
-﻿using Student_Attendance_Management_System___OOAD___E9___Year_4.Database;
-using Student_Attendance_Management_System___OOAD___E9___Year_4.DesignPatterns.Repository.Clazz;
+﻿using Student_Attendance_Management_System___OOAD___E9___Year_4.DesignPatterns.Repository.Clazz;
 using Student_Attendance_Management_System___OOAD___E9___Year_4.DesignPatterns.Repository.Departments;
+using Student_Attendance_Management_System___OOAD___E9___Year_4.DesignPatterns.Repository.Students;
 using Student_Attendance_Management_System___OOAD___E9___Year_4.DesignPatterns.Repository.Users;
 using Student_Attendance_Management_System___OOAD___E9___Year_4.Models;
 
@@ -12,12 +12,14 @@ public partial class AdminDashboard : Form
     private readonly UserRepository _userRepository;
     private readonly DepartmentRepository _departmentRepository;
     private readonly ClassesRepository _classesRepository;
-    public AdminDashboard(User user, UserRepository userRepository, DepartmentRepository departmentRepository, ClassesRepository classesRepository)
+    private readonly StudentRepository _studentRepository;
+    public AdminDashboard(User user, UserRepository userRepository, DepartmentRepository departmentRepository, ClassesRepository classesRepository, StudentRepository studentRepository)
     {
         _user = user;
         _userRepository = userRepository;
         _departmentRepository = departmentRepository;
         _classesRepository = classesRepository;
+        _studentRepository = studentRepository;
         InitializeComponent();
         username.Text = user.FullName;
         email.Text = user.Email;
@@ -41,7 +43,7 @@ public partial class AdminDashboard : Form
 
     private void dashboard_btn_Click(object sender, EventArgs e)
     {
-        LoadForm(new AdminDashboardPage());
+        LoadForm(new AdminDashboardPage(_classesRepository));
     }
 
     private void Professor_btn_Click(object sender, EventArgs e)
@@ -56,7 +58,7 @@ public partial class AdminDashboard : Form
 
     private void student_btn_Click(object sender, EventArgs e)
     {
-        LoadForm(new AdminStudentPage());
+        LoadForm(new AdminStudentPage(_classesRepository,_studentRepository));
     }
 
     private void department_btn_Click(object sender, EventArgs e)
@@ -66,7 +68,7 @@ public partial class AdminDashboard : Form
 
     private void AdminDashboard_Load(object sender, EventArgs e)
     {
-        LoadForm(new AdminDashboardPage());
+        LoadForm(new AdminDashboardPage(_classesRepository));
     }
 
     private void logout_btn_Click(object sender, EventArgs e)
