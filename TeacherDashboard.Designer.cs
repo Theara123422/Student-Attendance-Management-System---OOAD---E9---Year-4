@@ -33,16 +33,14 @@
             pictureBox2 = new PictureBox();
             teacher_email = new Label();
             teacher_username = new Label();
-            profile = new PictureBox();
             Title = new Label();
             Sidebar = new Panel();
+            logout_btn = new PictureBox();
             attendance_btn = new Button();
             teacher_dashboard_btn = new Button();
             ContentTeacher = new Panel();
-            logout_btn = new PictureBox();
             Navbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)profile).BeginInit();
             Sidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)logout_btn).BeginInit();
             SuspendLayout();
@@ -53,7 +51,6 @@
             Navbar.Controls.Add(pictureBox2);
             Navbar.Controls.Add(teacher_email);
             Navbar.Controls.Add(teacher_username);
-            Navbar.Controls.Add(profile);
             Navbar.Controls.Add(Title);
             Navbar.Dock = DockStyle.Top;
             Navbar.Location = new Point(0, 0);
@@ -97,16 +94,6 @@
             teacher_username.TabIndex = 2;
             teacher_username.Text = "Pen Theara";
             // 
-            // profile
-            // 
-            profile.Image = (Image)resources.GetObject("profile.Image");
-            profile.Location = new Point(1064, 10);
-            profile.Name = "profile";
-            profile.Size = new Size(51, 48);
-            profile.SizeMode = PictureBoxSizeMode.Zoom;
-            profile.TabIndex = 1;
-            profile.TabStop = false;
-            // 
             // Title
             // 
             Title.AutoSize = true;
@@ -131,6 +118,18 @@
             Sidebar.Padding = new Padding(10);
             Sidebar.Size = new Size(248, 654);
             Sidebar.TabIndex = 2;
+            // 
+            // logout_btn
+            // 
+            logout_btn.Cursor = Cursors.Hand;
+            logout_btn.Image = (Image)resources.GetObject("logout_btn.Image");
+            logout_btn.Location = new Point(99, 228);
+            logout_btn.Name = "logout_btn";
+            logout_btn.Size = new Size(40, 32);
+            logout_btn.SizeMode = PictureBoxSizeMode.Zoom;
+            logout_btn.TabIndex = 6;
+            logout_btn.TabStop = false;
+            logout_btn.Click += logout_btn_Click;
             // 
             // attendance_btn
             // 
@@ -171,18 +170,6 @@
             ContentTeacher.Size = new Size(1036, 654);
             ContentTeacher.TabIndex = 3;
             // 
-            // logout_btn
-            // 
-            logout_btn.Cursor = Cursors.Hand;
-            logout_btn.Image = (Image)resources.GetObject("logout_btn.Image");
-            logout_btn.Location = new Point(99, 228);
-            logout_btn.Name = "logout_btn";
-            logout_btn.Size = new Size(40, 32);
-            logout_btn.SizeMode = PictureBoxSizeMode.Zoom;
-            logout_btn.TabIndex = 6;
-            logout_btn.TabStop = false;
-            logout_btn.Click += logout_btn_Click;
-            // 
             // TeacherDashboardForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -197,7 +184,6 @@
             Navbar.ResumeLayout(false);
             Navbar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)profile).EndInit();
             Sidebar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)logout_btn).EndInit();
             ResumeLayout(false);
@@ -209,7 +195,6 @@
         private PictureBox pictureBox2;
         private Label teacher_email;
         private Label teacher_username;
-        private PictureBox profile;
         private Label Title;
         private Panel Sidebar;
         private Button attendance_btn;

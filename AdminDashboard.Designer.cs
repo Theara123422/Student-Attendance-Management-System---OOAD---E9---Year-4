@@ -40,14 +40,12 @@
             pictureBox2 = new PictureBox();
             email = new Label();
             username = new Label();
-            profile = new PictureBox();
             Title = new Label();
             ContentAdmin = new Panel();
             Sidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)logout_btn).BeginInit();
             Navbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)profile).BeginInit();
             SuspendLayout();
             // 
             // Sidebar
@@ -154,7 +152,6 @@
             Navbar.Controls.Add(pictureBox2);
             Navbar.Controls.Add(email);
             Navbar.Controls.Add(username);
-            Navbar.Controls.Add(profile);
             Navbar.Controls.Add(Title);
             Navbar.Dock = DockStyle.Top;
             Navbar.Location = new Point(4, 4);
@@ -198,16 +195,6 @@
             username.TabIndex = 2;
             username.Text = "Pen Theara";
             // 
-            // profile
-            // 
-            profile.Image = (Image)resources.GetObject("profile.Image");
-            profile.Location = new Point(1077, 10);
-            profile.Name = "profile";
-            profile.Size = new Size(51, 48);
-            profile.SizeMode = PictureBoxSizeMode.Zoom;
-            profile.TabIndex = 1;
-            profile.TabStop = false;
-            // 
             // Title
             // 
             Title.AutoSize = true;
@@ -250,7 +237,6 @@
             Navbar.ResumeLayout(false);
             Navbar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)profile).EndInit();
             ResumeLayout(false);
         }
 
@@ -260,7 +246,6 @@
         private Panel Navbar;
         private Panel ContentAdmin;
         private Label Title;
-        private PictureBox profile;
         private Label username;
         private Label email;
         private Button dashboard_btn;

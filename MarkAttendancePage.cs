@@ -41,7 +41,7 @@ namespace Student_Attendance_Management_System___OOAD___E9___Year_4
 
         private void dgv_teacher_attendance_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex > 0)
+            if (e.RowIndex >= 0)
             {
                int ClassId = Convert.ToInt32(dgv_teacher_attendance.Rows[e.RowIndex].Cells[0].Value);
                 AttendanceForm attendanceForm = new AttendanceForm(ClassId, _studentRepository, _attendanceRepository,_user);

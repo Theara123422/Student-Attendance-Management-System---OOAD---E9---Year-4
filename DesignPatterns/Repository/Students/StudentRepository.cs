@@ -86,7 +86,7 @@ public class StudentRepository : IStudentRepository
                join student in _context.Students on classes.ID equals student.ClassId 
                join attendance in _context.Attendances on student.Id equals attendance.StudentId into attendanceGroup
                from attendance in attendanceGroup.DefaultIfEmpty()
-               where classes.ID == ClassId && attendance.date == DateTime.Today
+               where classes.ID == ClassId
                        select new MarkAttendanceInfo
                {
                   StudentId = student.Id,

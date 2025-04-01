@@ -1,5 +1,4 @@
-﻿using BCrypt.Net;
-using Student_Attendance_Management_System___OOAD___E9___Year_4.DesignPatterns.Strategy;
+﻿using Student_Attendance_Management_System___OOAD___E9___Year_4.DesignPatterns.Strategy;
 
 public class BCryptHashStrategy : IPasswordHashStrategy
 {

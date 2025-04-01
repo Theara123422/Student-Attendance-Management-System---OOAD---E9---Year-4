@@ -48,7 +48,7 @@ namespace Student_Attendance_Management_System___OOAD___E9___Year_4
 
         private void dgv_classes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex > 0)
+            if (e.RowIndex >= 0)
             {
                 btn_edit_class.Enabled = true;
                 btn_del_class.Enabled = true;
